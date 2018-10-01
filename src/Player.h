@@ -27,6 +27,18 @@ public:
 	{
 		return movement;
 	}
+	bool getIsAlive()
+	{
+		return isAlive;
+	}
+	bool getIsWinner()
+		{
+			return isAlive;
+		}
+	void winTheGame()
+	{
+		isWinner=true;
+	}
 	void subtractHealth(int damage)
 	{
 		health=health-damage;
@@ -38,6 +50,8 @@ private:
 	int health{20};
 	int attack{2};
 	int movement{1};
+	bool isAlive{true};
+	bool isWinner{false};
 };
 
 #endif /* PLAYER_H_ */

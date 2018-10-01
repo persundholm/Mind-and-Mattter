@@ -12,6 +12,13 @@
 
 class Game_Session {
 public:
+
+	enum class playersTurn
+	{
+		PLAYER_ONE,
+		PLAYER_TWO
+	};
+
 	Game_Session();
 	virtual ~Game_Session();
 
@@ -26,21 +33,29 @@ public:
 		return player2;
 	}
 
+	Player* getActivePlayer();
+
+	Player* getUnActivePlayer();
+
+	void refreshAcitvePlayer();
 
 	bool getIsGameActive()
 	{
 		return isGameActive;
 	}
-	void gameOver()
-	{
-		isGameActive=false;
-	}
+	void setGameStatus();
+
+
+
+
 
 private:
-	int distance{10};
 	Player player1;
 	Player player2;
+	playersTurn activePlayer{playersTurn::PLAYER_ONE};
+	playersTurn unActivePlayer{playersTurn::PLAYER_TWO};
 	bool isGameActive{true};
+
 };
 
 #endif /* GAMESESSION_H_ */
